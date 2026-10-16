@@ -1,5 +1,5 @@
 
-import ollama from "ollama";
+import { Ollama } from "ollama";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -20,7 +20,27 @@ export async function POST(request: Request) {
       );
     }
 
-    const response = await ollama.chat({
+    const accessClientId = process.env.OLLAMA_CLOUD_ACCESS_CLIENT_ID;
+    const accessClientSecret = process.env.OLLAMA_CLOUD_ACCESS_CLIENT_SECRET;
+    if (Boolean(accessClientId) !== Boolean(accessClientSecret)) {
+      return NextResponse.json(
+        { error: "Both Cloudflare Access service token values must be configured." },
+        { status: 500 }
+      );
+    }
+
+    const ollamaClient = new Ollama({
+      host: process.env.OLLAMA_HOST || "http://127.0.0.1:11434",
+      ...(accessClientId && accessClientSecret
+        ? {
+            headers: {
+              "CF-Access-Client-Id": accessClientId,
+              "CF-Access-Client-Secret": accessClientSecret,
+            },
+          }
+        : {}),
+    });
+    const response = await ollamaClient.chat({
       model,
       messages: [
         { role: "system", content: system },

@@ -287,7 +287,7 @@ export default function Home() {
               placeholder="qwen3"
             />
             <p className="mt-2 text-xs text-zinc-500">
-              Use an installed Ollama model name.
+              Use a model installed on the Ollama server.
             </p>
           </div>
 
@@ -353,7 +353,7 @@ export default function Home() {
 
           <div className="mt-auto pt-8 text-xs text-zinc-500">
             <span className="mr-2 inline-block h-2 w-2 rounded-full bg-green-400" />
-            Powered by your local Ollama
+            Powered by Ollama
           </div>
         </aside>
 

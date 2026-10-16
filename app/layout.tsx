@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "My AI",
-  description: "Private, local AI chat",
+  description: "AI chat powered by your Ollama server.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
