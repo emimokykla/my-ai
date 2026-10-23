@@ -476,7 +476,7 @@ export default function Home() {
                 </button>
               </form>
               <p className="mt-3 text-center text-xs text-zinc-600">
-                This AI doesnæt make mistakes (trust, trust).
+                This AI doesn't make mistakes (trust, trust).
               </p>
             </div>
           </div>
