@@ -456,7 +456,7 @@ export default function Home() {
               >
                 <textarea
                   value={input}
-                  onChange={(e) => setInput(e.target.value)}
+                  onInput={(e) => setInput(e.currentTarget.value)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && !e.shiftKey) {
                       e.preventDefault();
