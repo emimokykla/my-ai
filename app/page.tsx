@@ -314,20 +314,22 @@ export default function Home() {
 
           <div className="mt-5">
             <div className="mb-2 flex justify-between text-sm">
-              <label>Creativity</label>
-              <span className="text-[#d997a1]">
+              <label htmlFor="creativity-slider">Creativity</label>
+              <output
+                htmlFor="creativity-slider"
+                className="text-[#d997a1]"
+              >
                 {temperature.toFixed(1)}
-              </span>
+              </output>
             </div>
             <input
+              id="creativity-slider"
               type="range"
               min="0"
               max="1.5"
               step="0.1"
               value={temperature}
-              onChange={(e) =>
-                setTemperature(Number(e.target.value))
-              }
+              onInput={(e) => setTemperature(e.currentTarget.valueAsNumber)}
               className="w-full accent-[#8d2939]"
             />
             <div className="mt-1 flex justify-between text-xs text-zinc-500">
