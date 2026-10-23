@@ -20,7 +20,7 @@ ollama pull gemma3:4b
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser. Keep the terminal running while you use the app, and make sure Ollama is running too. If Ollama is not already running as a background service on your system, open a second terminal and run `ollama serve`.
+Open either "http://[::1]:3000" (Shows in the terminal you use) or "http://localhost:3000" in your browser when it's done. Keep the terminal running while you use the app, and make sure Ollama is running too. If Ollama is not already running as a background service on your system, open a second terminal and run `ollama serve`.
 
 The app connects to Ollama on the same computer, so each person who wants to use it needs to run the app and Ollama locally. It is not a hosted chat page that can be opened directly from GitHub.
 
