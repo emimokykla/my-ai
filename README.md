@@ -10,15 +10,32 @@ This app runs on your computer and uses [Ollama](https://ollama.com/) to generat
 - [Node.js](https://nodejs.org/) (LTS)
 - [Ollama](https://ollama.com/)
 
-Then open a terminal (PowerShell, Terminal, or a VS Code terminal) and run:
+### First-time setup in PowerShell
 
-```sh
+Run these commands from your user folder. Do not clone or install the app from `C:\Windows\System32`.
+
+```powershell
+Set-Location $HOME
 git clone https://github.com/emimokykla/my-ai.git
-cd my-ai
+Set-Location .\my-ai
 npm install
 ollama pull gemma3:4b
 npm run dev
 ```
+
+### If you already cloned the project
+
+Do not run `git clone` again. In PowerShell, change to the folder containing your existing clone, then pull the latest changes before starting it. Replace the example path with the location of your `my-ai` folder:
+
+```powershell
+Set-Location "C:\path\to\my-ai"
+git pull
+npm install
+ollama pull gemma3:4b
+npm run dev
+```
+
+If `git clone` says the `my-ai` folder already exists, use these update steps instead. Make sure the terminal is in the project folder (the one containing `package.json`) before running `npm install` or `npm run dev`.
 
 Open [http://127.0.0.1:3010](http://127.0.0.1:3010) in your browser. Use this exact address so you open this app rather than another local server. Keep the terminal running while you use the app, and make sure Ollama is running too. If Ollama is not already running as a background service on your system, open a second terminal and run `ollama serve`.
 
